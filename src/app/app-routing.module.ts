@@ -9,7 +9,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'profile/:userId',
+    path: 'profile/:username',
     component: LoginComponent,
     children: [
       {
