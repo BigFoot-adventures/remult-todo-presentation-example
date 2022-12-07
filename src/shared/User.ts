@@ -33,6 +33,7 @@ export class User {
 		this.userName = username;
 		this.firstName = first;
 		this.password = pwd;
+		this.lists = lists;
 		if(last > ""){
 			this.lastName = last;
 		}
