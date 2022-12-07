@@ -1,14 +1,19 @@
-<mat-card>
-	<mat-form-field appearance="fill">
-    <mat-label>First name</mat-label>
-    <input matInput placeholder="John">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-	<mat-form-field appearance="fill">
-    <mat-label>First name</mat-label>
-    <input matInput placeholder="John">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
+<mat-card style="margin:auto; max-width:fit-content; top:10%">
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" [(ngModel)]="userName">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matNativeControl [type]="password" [(ngModel)]="password">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <button mat-raised-button (click)="signIn()" color="accent">Sign in</button>
+  </p>
 </mat-card>
