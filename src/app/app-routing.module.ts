@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { profile } from 'console';
 import { ListViewComponent } from './list-view/list-view.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -10,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'profile/:username',
-    component: LoginComponent,
+    component: ProfileComponent,
     children: [
       {
         path: 'lists',
