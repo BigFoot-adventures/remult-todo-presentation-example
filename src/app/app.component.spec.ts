@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'remult-angular-todo'`, () => {
+  it(`should have as title 'Remult-Example'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('remult-angular-todo');
+    expect(app.title).toEqual('Remult-Example');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('remult-angular-todo app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Remult-Example app is running!');
   });
 });

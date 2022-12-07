@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/remult-angular-todo'),
+      dir: require('path').join(__dirname, './coverage/remult-todo-presentation-example'),
       subdir: '.',
       reporters: [
         { type: 'html' },
