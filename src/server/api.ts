@@ -1,19 +1,16 @@
 import { remult } from 'remult';
 import { remultExpress } from 'remult/remult-express';
+import { List } from '../shared/List';
+import { TasksController } from '../shared/TasksController';
+import { User } from '../shared/User';
 import { Task } from '../shared/Task';
 
 export const api = remultExpress({
-    entities: [Task],
+    entities: [Task, List, User],
     initApi: async () => {
-        const taskRepo = remult.repo(Task);
-        if (await taskRepo.count() === 0) {
-            await taskRepo.insert([
-                { title: "Task a" },
-                { title: "Task b", completed: true },
-                { title: "Task c" },
-                { title: "Task d" },
-                { title: "Task e", completed: true }
-            ]);
-        }
-    }
+        const userRepo = remult.repo(User);
+    },
+    controllers: [TasksController],
+    getUser: request => request.session!['user']
+
 });

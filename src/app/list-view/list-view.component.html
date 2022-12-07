@@ -1,1 +1,6 @@
-<p>list-view works!</p>
+      
+<div flex-xs flex-gt-xs>
+	<div *ngFor="let list of lists">
+		<app-todo [list]="list"></app-todo>
+	</div>
+</div>
