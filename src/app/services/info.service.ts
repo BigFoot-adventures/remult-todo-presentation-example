@@ -1,11 +1,18 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { UserInfo } from 'remult';
-import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InfoService {
-  @Output() currentUser = new EventEmitter<UserInfo>();
-  constructor() { }
+  @Output() loggedIn = new EventEmitter<boolean>();
+
+  currentUser: UserInfo | undefined;
+  constructor() {
+    this.loggedIn.subscribe((data) => {
+      if(!data){
+        this.currentUser = undefined;
+      }
+    })
+  }
 }

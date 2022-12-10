@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { remult } from 'remult';
+import { Router } from '@angular/router';
+import { remult, UserInfo } from 'remult';
 import { List } from 'src/shared/List';
+import { InfoService } from '../services/info.service';
 
 @Component({
   selector: 'app-list-view',
@@ -11,25 +12,24 @@ import { List } from 'src/shared/List';
 export class ListViewComponent implements OnInit {
   listRepo = remult.repo(List);
   lists?: List[];
-  user?: string;
-  constructor(private route: ActivatedRoute) {
-    console.log('list-view');
-    
-    this.route.parent?.parent?.paramMap.subscribe(param => {
-      if(param.get('username') != null){
-        this.user = param.get('username')!;
-        console.log(this.user);
-      }
-    });
-   }
+  user?: UserInfo;
+  constructor(private svc: InfoService, private router: Router) {}
 
   ngOnInit(): void {
+    this.user = this.svc.currentUser;
     this.getLists();
+    this.svc.loggedIn.subscribe((data) => {
+      if(data){
+        this.getLists();
+      }else{
+        this.router.navigate(['/login']);
+      }
+    })
   }
 
   async getLists(){
-    this.lists = await this.listRepo.find({
-      where: {name: this.user!}
+    this.lists = await this.listRepo.find({      
+      where: {user: this.user?.id}
     });
   }
 

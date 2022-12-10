@@ -1,8 +1,7 @@
 <mat-card style="background-color: #ffedfe; margin: 10px; max-width: 400px">
   <mat-card-title *ngIf="true">
     <mat-form-field>
-      <mat-label>Title</mat-label>
-      <input matInput [(ngModel)]="list.name">
+      <input matInput [(ngModel)]="list.name" placeholder="Title">
     </mat-form-field>
   </mat-card-title>
   <mat-checkbox [(ngModel)]="hideCompleted" (change)="fetchTasks()">Hide Completed</mat-checkbox>

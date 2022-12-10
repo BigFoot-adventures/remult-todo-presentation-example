@@ -1,8 +1,11 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button>
+  <button *ngIf="!currentUser" mat-icon-button>
     <mat-icon color="accent" [routerLink]="['/login']">login</mat-icon>
   </button>
-	<button mat-icon-button>
-    <mat-icon color="accent">add_box</mat-icon>
-  </button>
+    <button *ngIf="currentUser" mat-icon-button>
+      <mat-icon color="accent">add_box</mat-icon>
+    </button>	
+    <button *ngIf="currentUser" (click)="signOut()" mat-icon-button>
+      <mat-icon color="accent">logout</mat-icon>
+    </button>	
 </mat-toolbar>

@@ -56,7 +56,7 @@ export class TodoComponent implements OnInit {
   }
 
   async setAll(completed: boolean){
-    await TasksController.setAll(completed);
+    await TasksController.setAll(completed, this.list.listId);
     this.fetchTasks();
   }
   /*async taskCount(){

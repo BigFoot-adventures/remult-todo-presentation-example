@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserInfo } from 'remult';
 import { InfoService } from '../services/info.service';
@@ -23,21 +23,17 @@ export class LoginComponent implements OnInit {
         password: this.password
       }).subscribe({
         next: user => {
-          this.svc.currentUser.emit(user);
           this.userName = '';
-          alert('it worked... sorta')
-          this.router.navigate([`/profile/${this.userName}/lists`])
+          this.svc.currentUser = user;          
+          this.svc.loggedIn.emit(true);
+          this.router.navigate([`/lists`])
         },
         error: error => alert(error.error)
       });
   }
 
-  signOut() {
-    this.http.post('/api/signOut', {}).subscribe(() => this.svc.currentUser.emit());
-  }
-
   ngOnInit() {
-    this.http.get<UserInfo>('/api/currentUser').subscribe(user => this.svc.currentUser.emit(user))
+    this.http.get<UserInfo>('/api/currentUser').subscribe(user => this.svc.loggedIn.emit(true))
   }
 
 }
