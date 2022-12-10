@@ -1,27 +1,16 @@
 import express, { Router } from "express";
 import { User } from "../shared/User";
 export const auth = Router();
+import {remult} from 'remult';
+import { api } from "./api";
 
 auth.use(express.json());
 
-export const validUsers: User[] = [
-    {
-        "id": "Ukudood",
-        "firstName": "Brendon",
-        "lastName": "",
-        "password": "music"
-    },
-    {
-        "id": "creature",
-        "firstName": "Big",
-        "lastName": "Foot",
-        "password": "jerky"
-    }
-];
 
-auth.post("/api/signIn", (req, res) => {
-    const user = validUsers.find((user: User) => user.id === req.body.username && user.password === req.body.password);
-    if (user) {
+auth.post("/api/signIn", api.withRemult, async (req, res) => {
+    const userRepo = remult.repo(User);
+    const user = await userRepo.findFirst({id: req.body.username, password: req.body.password})
+    if (user) {        
         req.session!['user'] = user;
         res.json(user);
     } else {

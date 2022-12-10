@@ -1,4 +1,4 @@
-import { Allow, BackendMethod, remult } from "remult";
+import { BackendMethod, remult } from "remult";
 import { Task } from "./Task";
 
 export class TasksController {
