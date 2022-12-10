@@ -4,21 +4,31 @@ import { profile } from 'console';
 import { ListViewComponent } from './list-view/list-view.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     component: LoginComponent
   },
   {
-    path: 'profile/:username',
+    path: 'profile/',
     component: ProfileComponent,
-    children: [
-      {
-        path: 'lists',
-        component: ListViewComponent
-      }
-    ]
+    canActivate:[AuthService]
+  },
+  {
+    path: 'lists',
+    component: ListViewComponent,
+    canActivate:[AuthService]
+  },
+  {
+    path: '**',
+    component: LoginComponent
   }
 ];
 
