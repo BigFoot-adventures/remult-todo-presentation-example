@@ -10,6 +10,9 @@ export class List{
 	listId!: string;
 
 	@Fields.string()
+	user="";
+
+	@Fields.string()
 	name="";
 
 	constructor(name=""){

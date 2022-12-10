@@ -6,11 +6,11 @@ import { Entity, Fields } from "remult";
 export class User {
 	@Fields.uuid<User>({
 		validate: (user) => {
-			if(user.userName == "")
+			if(user.id == "")
 				throw "First name is required"
 		}
 	})
-	userName: string;
+	id: string;
 
 	@Fields.string<User>({
 		validate: (user) => {
@@ -26,14 +26,10 @@ export class User {
 	@Fields.string()
 	password: string;
 
-	@Fields.object()
-	lists: string[]=[];
-
-	constructor(username: string, first:string, last:string="", pwd:string, lists: string[]){
-		this.userName = username;
+	constructor(username: string, first:string, last:string="", pwd:string){
+		this.id = username;
 		this.firstName = first;
 		this.password = pwd;
-		this.lists = lists;
 		if(last > ""){
 			this.lastName = last;
 		}

@@ -3,25 +3,25 @@
     "id": "8877d718-da05-4ff0-80e4-13407fea9e74",
     "list": "8f106758-aba3-4b55-a3d3-906c32f53ac2",
     "title": "Dracula",
-    "completed": false
+    "completed": true
   },
   {
     "id": "e6621bfe-6d85-4563-b840-6a95d9a536e2",
     "list": "a4d98950-9991-40c0-9619-4414d1e40750",
     "title": "12 Page paper",
-    "completed": false
+    "completed": true
   },
   {
     "id": "e4c5014d-e940-46bd-b676-0bdd852b4188",
     "list": "eb46e722-8dc5-4fc2-88e0-3266d1eab670",
     "title": "Web Development",
-    "completed": false
+    "completed": true
   },
   {
     "id": "a1f605a6-dd7b-4a98-8221-418805c3b3e7",
     "list": "235b63d9-9816-477e-bdd5-66c28ab753fa",
     "title": "The Lorax",
-    "completed": false
+    "completed": true
   },
   {
     "id": "4e19bb23-0c74-4b37-ba17-620ba3934bb5",
@@ -30,33 +30,33 @@
     "completed": false
   },
   {
-    "id": "215f5399-fe03-41bc-a5f6-11b4c488612e",
-    "list": "8f106758-aba3-4b55-a3d3-906c32f53ac2",
-    "title": "delet",
-    "completed": false
-  },
-  {
-    "id": "77fb417f-30b7-4334-b059-b2392ca7de2f",
-    "list": "8f106758-aba3-4b55-a3d3-906c32f53ac2",
-    "title": "h",
-    "completed": false
-  },
-  {
     "id": "686c74e5-71f4-4d74-a722-c49f1a5723b1",
     "list": "a4d98950-9991-40c0-9619-4414d1e40750",
     "title": "h",
-    "completed": false
+    "completed": true
   },
   {
     "id": "8016439e-51ad-459e-a892-25cd67de3166",
     "list": "a4d98950-9991-40c0-9619-4414d1e40750",
     "title": "we",
-    "completed": false
+    "completed": true
   },
   {
     "id": "35efd064-3cc9-4d6f-a664-a59d519435f5",
     "list": "a4d98950-9991-40c0-9619-4414d1e40750",
     "title": "sucks",
-    "completed": false
+    "completed": true
+  },
+  {
+    "id": "07afa670-ec3b-4818-960d-4b23782a0c2d",
+    "list": "61a325f6-a533-4007-b3ff-7eb2575a85f2",
+    "title": "bread",
+    "completed": true
+  },
+  {
+    "id": "986d2b50-3ab8-41fa-98fe-7540e0e9ab9b",
+    "list": "61a325f6-a533-4007-b3ff-7eb2575a85f2",
+    "title": "pickle",
+    "completed": true
   }
 ]
