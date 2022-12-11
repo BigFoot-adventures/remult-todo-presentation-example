@@ -33,7 +33,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<UserInfo>('/api/currentUser').subscribe(user => this.svc.loggedIn.emit(true))
+    this.http.get<UserInfo>('/api/currentUser').subscribe(
+      user =>{ 
+        this.svc.currentUser = user;        
+        this.svc.loggedIn.emit(true);
+        this.router.navigate([`/lists`])
+      });
   }
 
 }
