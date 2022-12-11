@@ -5,6 +5,7 @@ import { ListViewComponent } from './list-view/list-view.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthService } from './services/auth.service';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'profile/',
+    path: 'profile',
     component: ProfileComponent,
     canActivate:[AuthService]
   },
@@ -25,6 +26,10 @@ const routes: Routes = [
     path: 'lists',
     component: ListViewComponent,
     canActivate:[AuthService]
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   },
   {
     path: '**',

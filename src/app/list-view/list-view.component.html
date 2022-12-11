@@ -1,6 +1,9 @@
-      
-<div flex-xs flex-gt-xs>
+<button matTooltip="New List" (click)="addList()" style="float: right" mat-icon-button>
+	<mat-icon color="accent">add_box</mat-icon>
+</button>
+<div class="lists">
 	<div *ngFor="let list of lists">
-		<app-todo [list]="list"></app-todo>
+		<app-todo [list]="list" (deletedList)="getLists()"></app-todo>
 	</div>
 </div>
+

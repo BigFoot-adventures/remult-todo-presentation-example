@@ -17,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProfileComponent } from './profile/profile.component';
 import { ListViewComponent } from './list-view/list-view.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ListViewComponent } from './list-view/list-view.component';
     NavbarComponent,
     LoginComponent,
     ProfileComponent,
-    ListViewComponent
+    ListViewComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { ListViewComponent } from './list-view/list-view.component';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
