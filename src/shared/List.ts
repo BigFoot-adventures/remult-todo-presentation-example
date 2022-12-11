@@ -10,12 +10,12 @@ export class List{
 	listId!: string;
 
 	@Fields.string()
-	user="";
+	user: string;
 
 	@Fields.string()
 	name="";
 
-	constructor(name=""){
-		this.name = name;
+	constructor(user: string){
+		this.user = user
 	}
 }

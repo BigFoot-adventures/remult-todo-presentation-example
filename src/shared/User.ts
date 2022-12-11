@@ -21,17 +21,15 @@ export class User {
 	firstName: string;
 
 	@Fields.string()
-	lastName!: string;
+	lastName: string;
 
 	@Fields.string()
 	password: string;
 
-	constructor(username: string, first:string, last:string="", pwd:string){
+	constructor(username: string, first:string, last:string, pwd:string){
 		this.id = username;
 		this.firstName = first;
+		this.lastName = last;
 		this.password = pwd;
-		if(last > ""){
-			this.lastName = last;
-		}
 	}
 }
