@@ -11,7 +11,7 @@ import { InfoService } from '../services/info.service';
 })
 export class ListViewComponent implements OnInit {
   listRepo = remult.repo(List);
-  lists?: List[];
+  lists: List[] = [];
   user?: UserInfo;
   constructor(private svc: InfoService, private router: Router) {}
 
@@ -33,4 +33,16 @@ export class ListViewComponent implements OnInit {
     });
   }
 
+  async addList() {
+    if(this.user?.id){
+      try{
+        let newList = new List(this.user.id);
+        await this.listRepo.save(newList);
+        this.getLists();
+      }catch(err: any){
+        console.log(err.message);
+      }
+    }
+  }
+  
 }
