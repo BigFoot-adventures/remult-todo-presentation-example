@@ -1,16 +1,22 @@
-import { Entity, Fields } from "remult";
+import { Allow, Entity, Fields, remult } from "remult";
 
 @Entity("users", {
-	allowApiCrud: true
+	allowApiInsert: true,
+	allowApiCrud: Allow.authenticated
 })
 export class User {
-	@Fields.uuid<User>({
-		validate: (user) => {
-			if(user.id == "")
-				throw "First name is required"
+	@Fields.uuid<User>()
+	id!: string;
+
+	@Fields.string({
+		validate: async (data) => {
+			let userRepo = remult.repo(User);
+			let found = await userRepo.find({where:{ userName: data }})
+			if(found.length > 0)
+				throw "Username in use"
 		}
 	})
-	id: string;
+	userName: string;
 
 	@Fields.string<User>({
 		validate: (user) => {
@@ -27,7 +33,7 @@ export class User {
 	password: string;
 
 	constructor(username: string, first:string, last:string, pwd:string){
-		this.id = username;
+		this.userName = username;
 		this.firstName = first;
 		this.lastName = last;
 		this.password = pwd;
