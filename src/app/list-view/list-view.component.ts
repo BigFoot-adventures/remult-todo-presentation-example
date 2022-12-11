@@ -28,9 +28,11 @@ export class ListViewComponent implements OnInit {
   }
 
   async getLists(){
-    this.lists = await this.listRepo.find({      
-      where: {user: this.user?.id}
-    });
+    if(this.user?.id){
+      this.lists = await this.listRepo.find({      
+        where: {user: this.user?.id}
+      });
+    }
   }
 
   async addList() {
