@@ -1,21 +1,26 @@
 <mat-card style="background-color: #ffedfe; margin: 10px; max-width: 400px">
-  <mat-card-title *ngIf="true">
+  <mat-card-title>
     <mat-form-field>
-      <input matInput [(ngModel)]="list.name" placeholder="Title">
+      <input matInput [(ngModel)]="list!.name" (change)="saveList()" placeholder="Title">
     </mat-form-field>
-  </mat-card-title>
+    <button style="float: right;" (click)="deleteList()" mat-icon-button>
+      <mat-icon color="accent">delete_forever</mat-icon>
+    </button>
+</mat-card-title>
   <mat-checkbox [(ngModel)]="hideCompleted" (change)="fetchTasks()">Hide Completed</mat-checkbox>
     <mat-card-content style="margin:0" *ngFor="let task of tasks">
       <mat-checkbox [(ngModel)]="task.completed" (change)="saveTask(task)" style="margin-right: 8px;"></mat-checkbox>
       <mat-form-field style="border-top: 0px">
         <input style="border-top: 0px" matInput [(ngModel)]="task.title" (change)="saveTask(task)">
       </mat-form-field>
-      <button mat-button color="warn" (click)="deleteTask(task)">Delete</button>
+      <button mat-raised-button color="warn" style="width: fit-content; padding-right: 5px; padding-left: 5px; float: right;" (click)="deleteTask(task)">Delete</button>
     </mat-card-content>
-  <button mat-raised-button (click)="addTask()" color="primary">Add Task</button>
+    <p>
+      <button mat-raised-button (click)="addTask()" color="primary">Add Task</button>
+    </p>
   <p>
-    <button mat-raised-button (click)="setAll(true)" style="margin-right: 5px">Set all as completed</button>
-    <button mat-raised-button (click)="setAll(false)" color="yellow">Set all as uncompleted</button>
+    <button mat-raised-button (click)="setAll(true)" color="accent" style="margin-right: 5px; margin-bottom: 5px">Set all as completed</button>
+    <button mat-raised-button (click)="setAll(false)" color="primary">Set all as uncompleted</button>
   </p>
 </mat-card>
 
