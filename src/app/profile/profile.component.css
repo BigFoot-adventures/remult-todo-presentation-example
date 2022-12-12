@@ -1,0 +1,11 @@
+.updateProfile {
+	display: flex;
+	flex-direction: row;
+	margin:auto;
+	max-width:fit-content;
+	top:10%
+}
+
+.updateProfile div {
+	margin: 5px;
+}

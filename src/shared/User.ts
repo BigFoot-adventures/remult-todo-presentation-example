@@ -2,6 +2,7 @@ import { Allow, Entity, Fields, remult } from "remult";
 
 @Entity("users", {
 	allowApiInsert: true,
+	allowApiRead: true,
 	allowApiCrud: Allow.authenticated
 })
 export class User {
@@ -11,7 +12,7 @@ export class User {
 	@Fields.string({
 		validate: async (data) => {
 			let userRepo = remult.repo(User);
-			let found = await userRepo.find({where:{ userName: data }})
+			let found = await userRepo.find({where:{ userName: data }})			
 			if(found.length > 0)
 				throw "Username in use"
 		}

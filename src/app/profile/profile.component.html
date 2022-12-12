@@ -1,2 +1,59 @@
-<p>profile works!</p>
-<app-list-view></app-list-view>
+<mat-card class="updateProfile">
+  
+  <div>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>New Username</mat-label>
+        <input matInput type="text" [(ngModel)]="userNameNew">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>First</mat-label>
+        <input matNativeControl type="text" [(ngModel)]="firstName">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Last</mat-label>
+        <input matNativeControl type="text" [(ngModel)]="lastName">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>New Password</mat-label>
+        <input matNativeControl [(ngModel)]="passwordNew">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>New Password (again)</mat-label>
+        <input matNativeControl [(ngModel)]="passwordNewAgain">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+  </div>
+  <div>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Old Username</mat-label>
+        <input matInput type="text" [(ngModel)]="userNameOld">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Old Password</mat-label>
+        <input matNativeControl [(ngModel)]="passwordOld">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-raised-button (click)="saveChanges()" color="accent">Sign up</button>
+    </p>
+  </div>
+</mat-card>

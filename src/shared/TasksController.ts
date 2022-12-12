@@ -1,4 +1,5 @@
-import { BackendMethod, remult } from "remult";
+import { Allow, BackendMethod, remult } from "remult";
+import { List } from "./List";
 import { Task } from "./Task";
 
 export class TasksController {
@@ -8,6 +9,14 @@ export class TasksController {
 
     for (const task of await taskRepo.find({where: {list: listId}})) {
       await taskRepo.save({ ...task, completed });
+    }
+  }
+
+  @BackendMethod({ allowed: Allow.authenticated})
+  static async updatedUsername(oldUser: string, newUser: string){
+    const listRepo = remult.repo(List);
+    for(const list of await listRepo.find({where: {user: oldUser}})){
+      await listRepo.save({...list, user: newUser})
     }
   }
 }

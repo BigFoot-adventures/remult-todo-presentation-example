@@ -6,9 +6,15 @@
     <mat-icon color="accent" [routerLink]="['/signup']">person_add</mat-icon>
   </button>
   <button *ngIf="currentUser" mat-icon-button>
-    <mat-icon color="accent">person</mat-icon>
+    <mat-icon color="accent" [routerLink]="['/profile']">person</mat-icon>
   </button>
-  <button *ngIf="currentUser" (click)="signOut()" mat-icon-button>
-    <mat-icon color="accent">logout</mat-icon>
-  </button>
+  <span *ngIf="currentUser"></span>
+  <span style="float: right">
+    <button *ngIf="currentUser" (click)="signOut()" mat-icon-button>
+      <mat-icon color="accent">logout</mat-icon>
+    </button>
+    <button *ngIf="currentUser" mat-icon-button>
+      <mat-icon color="accent" [routerLink]="['/lists']">checklist</mat-icon>
+    </button>
+  </span>
 </mat-toolbar>
