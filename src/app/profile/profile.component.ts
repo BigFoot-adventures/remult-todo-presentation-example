@@ -35,36 +35,43 @@ export class ProfileComponent implements OnInit {
       }).subscribe({
 
         next: async (data) => {
-
+          let newUsername = false;
           let obj = data as User;
           let user = await this.userRepo.findFirst({id: obj.id});
           let obj2 = await this.userRepo.findFirst({id: remult.user?.id});
-          
+          if(remult.authenticated()){
+            console.log('true');
+            
+          }else{console.log('false');
+          }
           if(obj2.userName == user.userName && obj2.password == user.password){
             let updateUser = user;
             //newUser.id = obj.id
-            if(this.userNameNew != "")
+            if(this.userNameNew != ""){
               updateUser.userName =  this.userNameNew;
+              newUsername = true
+            }
             if(this.firstName != "")
               updateUser.firstName = this.firstName;
             if(this.lastName != "")
               updateUser.lastName = this.lastName;
             if(this.passwordNew != "" || this.passwordNewAgain != ""){
               if(this.passwordNew == this.passwordNewAgain){
-                updateUser.password = this.passwordNew;  
+                updateUser.password = this.passwordNew;
               }else{
                 alert('Passwords must match');
               }
             }
 
             const newuser = await this.userRepo.save(updateUser); 
-            await TasksController.updatedUsername(this.userNameOld, this.userNameNew);
-            this.client.post<UserInfo>('/api/Signin', newuser).subscribe(
-              user =>{
-                remult.user = user;        
-                this.auth.loggedIn.emit(true);
+            if(newUsername){
+              await TasksController.updatedUsername(this.userNameOld, this.userNameNew);
+              this.client.post<UserInfo>('/api/Signin', newuser).subscribe(
+                user =>{
+                  remult.user = user;        
+                  this.auth.loggedIn.emit(true);
               });
-            
+            }
 
             alert('Changes saved!');     
             this.userNameOld = '';
