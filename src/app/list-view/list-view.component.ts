@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { remult, UserInfo } from 'remult';
 import { List } from 'src/shared/List';
-import { InfoService } from '../services/info.service';
+import { User } from 'src/shared/User';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-list-view',
@@ -13,13 +14,14 @@ export class ListViewComponent implements OnInit {
   listRepo = remult.repo(List);
   lists: List[] = [];
   user?: UserInfo;
-  constructor(private svc: InfoService, private router: Router) {}
+  constructor(private svc: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.user = this.svc.currentUser;
+    this.user = remult.user;
     this.getLists();
     this.svc.loggedIn.subscribe((data) => {
       if(data){
+        this.user = remult.user;
         this.getLists();
       }else{
         this.router.navigate(['/login']);
@@ -28,17 +30,19 @@ export class ListViewComponent implements OnInit {
   }
 
   async getLists(){
-    if(this.user?.id){
+    let obj = this.user as User;
+    if(obj?.userName){
       this.lists = await this.listRepo.find({      
-        where: {user: this.user?.id}
-      });
-    }
+        where: {user: obj.userName}
+      });      
+    }    
   }
 
   async addList() {
     if(this.user?.id){
       try{
-        let newList = new List(this.user.id);
+        let obj = this.user as User;
+        let newList = new List(obj.userName);
         await this.listRepo.save(newList);
         this.getLists();
       }catch(err: any){

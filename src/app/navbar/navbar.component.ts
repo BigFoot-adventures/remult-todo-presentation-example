@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { UserInfo } from 'remult';
-import { InfoService } from '../services/info.service';
+import { remult } from 'remult';
+import { User } from 'src/shared/User';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,26 +11,28 @@ import { InfoService } from '../services/info.service';
 })
 export class NavbarComponent implements OnInit {
 
-  currentUser: UserInfo | undefined;
+  currentUser: User | undefined;
 
-  constructor(private http: HttpClient, private infoSvc: InfoService) {
+  constructor(private http: HttpClient, private auth: AuthService) {
     
   }
 
   ngOnInit(): void {
-    this.infoSvc.loggedIn.subscribe((data)=>{
+    this.auth.loggedIn.subscribe((data)=>{
       if(data){
-        this.currentUser = this.infoSvc.currentUser;
+        this.currentUser = remult.user as User;
+
       }else{
         this.currentUser = undefined;
       }
-      console.log(this.currentUser);
-
     });
   }
 
   signOut() {
-    this.http.post('/api/signOut', {}).subscribe(() => this.infoSvc.loggedIn.emit());
+    this.http.post('/api/signOut', {}).subscribe(() => {
+      remult.user = undefined;
+      this.auth.loggedIn.emit();
+    });
   }
 
 }

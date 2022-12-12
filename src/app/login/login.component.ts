@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserInfo } from 'remult';
-import { InfoService } from '../services/info.service';
+import { remult, UserInfo } from 'remult';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +11,10 @@ import { InfoService } from '../services/info.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private svc: InfoService) { }
+  constructor(private http: HttpClient, private router: Router, private svc: AuthService) { }
 
   userName = '';
-  password=''
+  password='';
 
   signIn() {
     this.http.post<UserInfo>('/api/signIn',
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       }).subscribe({
         next: user => {
           this.userName = '';
-          this.svc.currentUser = user;          
+          remult.user = user;         
           this.svc.loggedIn.emit(true);
           this.router.navigate([`/lists`])
         },
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.http.get<UserInfo>('/api/currentUser').subscribe(
       user =>{ 
-        this.svc.currentUser = user;        
+        remult.user = user;       
         this.svc.loggedIn.emit(true);
         this.router.navigate([`/lists`])
       });

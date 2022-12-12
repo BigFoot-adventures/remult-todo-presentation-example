@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { InfoService } from './info.service';
+import { EventEmitter, Injectable, Output } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { remult } from 'remult';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements CanActivate{
+  @Output() loggedIn = new EventEmitter<boolean>();
 
-  constructor(private router: Router, private infoSvc: InfoService) { }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    if(this.infoSvc.currentUser){
+  constructor(private router: Router) { }
+  canActivate() {
+    if(remult.user){
       return true;
     }else{
-      alert("Please sign in to reach this page");
       this.router.navigate(['/login']);
       return false;
     }
