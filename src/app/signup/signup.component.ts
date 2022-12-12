@@ -29,8 +29,14 @@ export class SignupComponent implements OnInit {
       this.password
     );
     let found = await this.userRepo.find({where: {userName: this.userName}});
+    
     if(found.length == 0){
-      const newuser = await this.userRepo.insert(newUser);
+      try{
+        await this.userRepo.insert(newUser);
+        this.router.navigate(['/lists']);
+      }catch(err:any){
+        console.log(err.message);
+      }
     }else{
       alert("Username in use");
     }
