@@ -3,6 +3,8 @@ import { List } from "./List";
 import { Task } from "./Task";
 
 export class TasksController {
+
+  // can ignore entity api restrictions
   @BackendMethod({ allowed: true })
   static async setAll(completed: boolean, listId: string) {
     const taskRepo = remult.repo(Task);
