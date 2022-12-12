@@ -66,6 +66,9 @@ export class TodoComponent implements OnInit {
   async deleteList(){
     if(this.list){
       await this.listRepo.delete(this.list.listId)
+      for(let task of await this.taskRepo.find({where: {list: this.list.listId}})){
+        await this.taskRepo.delete(task);
+      }
     }
     this.deletedList.emit(true);    
   }
@@ -79,12 +82,4 @@ export class TodoComponent implements OnInit {
     }
   }
 
-  /*async taskCount(){
-    let repo = this.tasks;//await this.taskRepo.find()
-    if(repo.length < 20){
-      return false;
-    }else{
-      return true;
-    }
-  }*/
 }

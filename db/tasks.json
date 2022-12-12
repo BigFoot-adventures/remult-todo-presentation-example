@@ -24,24 +24,6 @@
     "completed": false
   },
   {
-    "id": "686c74e5-71f4-4d74-a722-c49f1a5723b1",
-    "list": "a4d98950-9991-40c0-9619-4414d1e40750",
-    "title": "h",
-    "completed": true
-  },
-  {
-    "id": "8016439e-51ad-459e-a892-25cd67de3166",
-    "list": "a4d98950-9991-40c0-9619-4414d1e40750",
-    "title": "we",
-    "completed": true
-  },
-  {
-    "id": "35efd064-3cc9-4d6f-a664-a59d519435f5",
-    "list": "a4d98950-9991-40c0-9619-4414d1e40750",
-    "title": "sucks",
-    "completed": true
-  },
-  {
     "id": "07afa670-ec3b-4818-960d-4b23782a0c2d",
     "list": "61a325f6-a533-4007-b3ff-7eb2575a85f2",
     "title": "bread",
@@ -50,44 +32,8 @@
   {
     "id": "986d2b50-3ab8-41fa-98fe-7540e0e9ab9b",
     "list": "61a325f6-a533-4007-b3ff-7eb2575a85f2",
-    "title": "pickle",
+    "title": "milk",
     "completed": true
-  },
-  {
-    "id": "9b165265-ebd5-4def-8b18-5eaad4802de7",
-    "list": "8f106758-aba3-4b55-a3d3-906c32f53ac2",
-    "title": "hhh",
-    "completed": false
-  },
-  {
-    "id": "d35c4b04-1474-40dd-a434-66c13d227b2c",
-    "list": "8da8fb90-f648-4bca-88a3-6ce573aecfe2",
-    "title": "haaha",
-    "completed": false
-  },
-  {
-    "id": "c70c52e8-3ea5-4c56-8e01-23be0bab5b36",
-    "list": "8da8fb90-f648-4bca-88a3-6ce573aecfe2",
-    "title": "hh",
-    "completed": true
-  },
-  {
-    "id": "beb3c1cb-ae98-439a-bb11-fd901cfc542c",
-    "list": "8da8fb90-f648-4bca-88a3-6ce573aecfe2",
-    "title": "hh",
-    "completed": false
-  },
-  {
-    "id": "4675100d-c5d1-4ec7-9f04-19b60f3932ac",
-    "list": "8da8fb90-f648-4bca-88a3-6ce573aecfe2",
-    "title": "hh",
-    "completed": false
-  },
-  {
-    "id": "007d6ed9-cd98-44da-9c47-61684834d99e",
-    "list": "8da8fb90-f648-4bca-88a3-6ce573aecfe2",
-    "title": "gg",
-    "completed": false
   },
   {
     "id": "256f0a94-b3de-44df-84e3-842bfc0cae46",
@@ -148,5 +94,17 @@
     "list": "06d07ce7-ebf3-43a2-8004-e28596d40b8a",
     "title": "myguy",
     "completed": true
+  },
+  {
+    "id": "7a4da9df-d210-4738-bcea-06d0f8d927d9",
+    "list": "a4d98950-9991-40c0-9619-4414d1e40750",
+    "title": "remult framework",
+    "completed": false
+  },
+  {
+    "id": "05979a4d-2e61-4b61-9b9e-f1fcc8f91d20",
+    "list": "61a325f6-a533-4007-b3ff-7eb2575a85f2",
+    "title": "turkey",
+    "completed": false
   }
 ]

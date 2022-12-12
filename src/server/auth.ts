@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import { User } from "../shared/User";
 export const auth = Router();
-import {remult} from 'remult';
+import { remult } from 'remult';
 import { api } from "./api";
 
 auth.use(express.json());

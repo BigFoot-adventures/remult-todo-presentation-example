@@ -22,9 +22,9 @@
   },
   {
     "id": "966edcca-c1a4-4d11-98b7-e99a6485cc38",
-    "userName": "magurl",
-    "firstName": "ma",
-    "lastName": "gurl",
-    "password": "magurl"
+    "userName": "test2",
+    "firstName": "john",
+    "lastName": "doe",
+    "password": "newpwd"
   }
 ]
