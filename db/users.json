@@ -3,7 +3,7 @@
     "id": "62b74d9e-5a5b-4f17-bc5c-8c2a880469eb",
     "userName": "Ukudood",
     "firstName": "Brendon",
-    "lastName": "",
+    "lastName": "Jensen",
     "password": "music"
   },
   {
@@ -19,5 +19,12 @@
     "firstName": "Mikayla",
     "lastName": "White",
     "password": "viola"
+  },
+  {
+    "id": "966edcca-c1a4-4d11-98b7-e99a6485cc38",
+    "userName": "magurl",
+    "firstName": "ma",
+    "lastName": "gurl",
+    "password": "magurl"
   }
 ]
