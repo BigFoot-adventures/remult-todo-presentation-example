@@ -6,12 +6,16 @@ import { api } from "./api";
 
 auth.use(express.json());
 
-
 auth.post("/api/signIn", api.withRemult, async (req, res) => {
     const userRepo = remult.repo(User);
-    const user = await userRepo.findFirst({id: req.body.username, password: req.body.password})
+    const user = await userRepo.findFirst({userName: req.body.username, password: req.body.password})
     if (user) {        
-        req.session!['user'] = user;
+        req.session!['user'] = {
+            "id": user.id,
+            "userName": user.userName,
+            "firstName": user.firstName,
+            "lastName": user.lastName
+        };
         res.json(user);
     } else {
         res.status(404).json("Invalid user");
